@@ -5,6 +5,9 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+
+import org.usfirst.frc.team2511.robot.commands.AutonomousGroup;
+import org.usfirst.frc.team2511.robot.commands.DriveSpeed;
 import org.usfirst.frc.team2511.robot.subsystems.TreadSubsystem;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -21,9 +24,8 @@ public class Robot extends IterativeRobot {
 
 	public static final TreadSubsystem treadSubsystem = new TreadSubsystem();
 	public static OI oi;
-
+	Command driveSpeed;
     Command autonomousCommand;
-    SendableChooser chooser;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -31,7 +33,7 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
 		oi = new OI();
-        chooser = new SendableChooser();
+		driveSpeed = new DriveSpeed();
     }
 	
 	/**
@@ -57,20 +59,7 @@ public class Robot extends IterativeRobot {
 	 * or additional comparisons to the switch structure below with additional strings & commands.
 	 */
     public void autonomousInit() {
-        autonomousCommand = (Command) chooser.getSelected();
-        
-		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
-		switch(autoSelected) {
-		case "My Auto":
-			autonomousCommand = new MyAutoCommand();
-			break;
-		case "Default Auto":
-		default:
-			autonomousCommand = new ExampleCommand();
-			break;
-		} */
-    	
-    	// schedule the autonomous command (example)
+    	autonomousCommand = new AutonomousGroup();
         if (autonomousCommand != null) autonomousCommand.start();
     }
 
@@ -94,6 +83,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        driveSpeed.start();
     }
     
     /**
