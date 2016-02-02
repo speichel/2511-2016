@@ -31,9 +31,9 @@ public class TreadSubsystem extends Subsystem {
 		leftSpeed = (((Y*yBoost)-(Z*zBoost))*limiter);
 		rightSpeed = (((Y*yBoost*-1)-(Z*zBoost))*limiter);
 		talon1.set(leftSpeed);
-		talon2.set(leftSpeed*-1);
+		talon2.set(leftSpeed);
 		talon3.set(rightSpeed);
-		talon4.set(rightSpeed*-1);
+		talon4.set(rightSpeed);
 	}
 	
     public void initDefaultCommand() {
