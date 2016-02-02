@@ -8,14 +8,18 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class DriveTLimit extends Command {
+	
+	private boolean finished = false;
 
     public DriveTLimit() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.treadSubsystem);
     }
+    
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -27,15 +31,17 @@ public class DriveTLimit extends Command {
     		Robot.treadSubsystem.isLimited=true;
     		Robot.treadSubsystem.limit(.65);
     	}
+    	finished = true;
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	return finished;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	finished = false;    	
     }
 
     // Called when another command which requires one or more of the same
