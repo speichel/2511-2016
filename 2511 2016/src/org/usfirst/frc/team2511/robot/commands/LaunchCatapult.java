@@ -2,46 +2,41 @@ package org.usfirst.frc.team2511.robot.commands;
 
 import org.usfirst.frc.team2511.robot.Robot;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class DriveTLimit extends Command {
-	
-	private boolean finished = false;
+public class LaunchCatapult extends Command {
 
-    public DriveTLimit() {
+	private boolean finished = false;
+	
+    public LaunchCatapult() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.treadSubsystem);
+        requires(Robot.catapultSubsystem);
     }
-    
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
+    	finished = false;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Robot.treadSubsystem.isLimited) {
-    		Robot.treadSubsystem.isLimited=false;
-    		Robot.treadSubsystem.limit(1.2);
-    	} else {
-    		Robot.treadSubsystem.isLimited=true;
-    		Robot.treadSubsystem.limit(.65);
-    	}
-    	finished = true;
+  		Robot.catapultSubsystem.fire();
+    	this.finished = true;
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return finished;
+    	return this.finished;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	finished = false;    	
+    	this.finished = false;
     }
 
     // Called when another command which requires one or more of the same

@@ -30,10 +30,10 @@ public class TreadSubsystem extends Subsystem {
 	public void changeSpeed(double Y, double Z) {
 		leftSpeed = (((Y*yBoost)-(Z*zBoost))*limiter);
 		rightSpeed = (((Y*yBoost*-1)-(Z*zBoost))*limiter);
-		talon1.set(leftSpeed);
-		talon2.set(leftSpeed);
+		talon1.set(leftSpeed*-1);
+		talon2.set(leftSpeed*-1);
 		talon3.set(rightSpeed);
-		talon4.set(rightSpeed);
+		talon4.set(rightSpeed*-1);
 	}
 	
     public void initDefaultCommand() {
