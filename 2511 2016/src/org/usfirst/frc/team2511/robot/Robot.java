@@ -10,6 +10,7 @@ import org.usfirst.frc.team2511.robot.commands.AutonomousGroup;
 import org.usfirst.frc.team2511.robot.commands.DriveSpeed;
 import org.usfirst.frc.team2511.robot.subsystems.TreadSubsystem;
 
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -33,7 +34,6 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
 		driveSpeed = new DriveSpeed();
-		SmartDashboard.putString("LIMITED", "YES:");
     }
 	
 	/**

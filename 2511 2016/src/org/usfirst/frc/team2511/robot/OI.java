@@ -1,9 +1,7 @@
 package org.usfirst.frc.team2511.robot;
 
-import org.usfirst.frc.team2511.robot.commands.DriveTLimit;
-
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.Button;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -15,7 +13,6 @@ public class OI {
     // You create one by telling it which joystick it's on and which button
     // number it is.
     public static Joystick mainStick = new Joystick(0);
-    public static JoystickButton button2 = new JoystickButton(mainStick, 2);
     // Button button = new JoystickButton(stick, buttonNumber);
     
     // There are a few additional built in buttons you can use. Additionally,
@@ -25,9 +22,7 @@ public class OI {
     //// TRIGGERING COMMANDS WITH BUTTONS
     // Once you have a button, it's trivial to bind it to a button in one of
     // three ways:
-    public OI() {
-    	button2.whenPressed(new DriveTLimit());
-    }
+    
     // Start the command when the button is pressed and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenPressed(new ExampleCommand());

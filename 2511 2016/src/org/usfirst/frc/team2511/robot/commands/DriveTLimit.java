@@ -3,7 +3,6 @@ package org.usfirst.frc.team2511.robot.commands;
 import org.usfirst.frc.team2511.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -17,7 +16,6 @@ public class DriveTLimit extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -25,11 +23,9 @@ public class DriveTLimit extends Command {
     	if (Robot.treadSubsystem.isLimited) {
     		Robot.treadSubsystem.isLimited=false;
     		Robot.treadSubsystem.limit(1);
-    		SmartDashboard.putString("LIMITED", "NO");
     	} else {
     		Robot.treadSubsystem.isLimited=true;
     		Robot.treadSubsystem.limit(.65);
-    		SmartDashboard.putString("LIMITED", "YES");
     	}
     }
 
