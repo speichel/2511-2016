@@ -26,7 +26,7 @@ public class DriveTLimit extends Command {
     protected void execute() {
     	if (Robot.treadSubsystem.isLimited) {
     		Robot.treadSubsystem.isLimited=false;
-    		Robot.treadSubsystem.limit(1);
+    		Robot.treadSubsystem.limit(1.2);
     	} else {
     		Robot.treadSubsystem.isLimited=true;
     		Robot.treadSubsystem.limit(.65);
