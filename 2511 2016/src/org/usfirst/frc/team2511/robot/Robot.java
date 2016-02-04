@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team2511.robot.commands.AutonomousGroup;
 import org.usfirst.frc.team2511.robot.commands.DriveSpeed;
 import org.usfirst.frc.team2511.robot.commands.DriveTLimit;
-import org.usfirst.frc.team2511.robot.subsystems.CatapultSubsystem;
 import org.usfirst.frc.team2511.robot.subsystems.TreadSubsystem;
 
 
@@ -23,7 +22,6 @@ import org.usfirst.frc.team2511.robot.subsystems.TreadSubsystem;
 public class Robot extends IterativeRobot {
 
 	public static final TreadSubsystem treadSubsystem = new TreadSubsystem();
-	public static final CatapultSubsystem catapultSubsystem = new CatapultSubsystem();
 	public static OI oi;
 	Command driveSpeed;
     Command autonomousCommand;

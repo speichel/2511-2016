@@ -1,8 +1,6 @@
 package org.usfirst.frc.team2511.robot;
 
 import org.usfirst.frc.team2511.robot.commands.DriveTLimit;
-import org.usfirst.frc.team2511.robot.commands.LaunchCatapult;
-
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -20,7 +18,6 @@ public class OI {
     public static JoystickButton button2 = new JoystickButton(mainStick, 2);
     // Button button = new JoystickButton(stick, buttonNumber);
     public OI() {
-    	button1.whenPressed(new LaunchCatapult());
     	button2.whenPressed(new DriveTLimit());
     }
     // There are a few additional built in buttons you can use. Additionally,
